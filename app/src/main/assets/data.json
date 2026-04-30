@@ -1,0 +1,49 @@
+[
+  {"name":"No_Leaf","symptoms":"Görüntüde bitki yaprağı tespit edilmedi.","management":"Lütfen yalnızca bitki yaprağını net, yakın ve iyi ışıkta fotoğraflayın."},
+
+  {"name":"Apple___Apple_scab","symptoms":"Yaprakta koyu lekeler","management":"Fungisit kullan"},
+  {"name":"Apple___Black_rot","symptoms":"Meyvede çürüme","management":"Enfekte dalları kes"},
+  {"name":"Apple___Cedar_apple_rust","symptoms":"Turuncu lekeler","management":"Mantar ilacı"},
+  {"name":"Apple___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
+
+  {"name":"Blueberry___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
+
+  {"name":"Cherry_(including_sour)___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
+  {"name":"Cherry_(including_sour)___Powdery_mildew","symptoms":"Beyaz toz","management":"Fungisit"},
+
+  {"name":"Grape___Black_rot","symptoms":"Siyah çürüme","management":"İlaçla"},
+  {"name":"Grape___Esca_(Black_Measles)","symptoms":"Sararma","management":"Budama"},
+  {"name":"Grape___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
+  {"name":"Grape___Leaf_blight_(Isariopsis_Leaf_Spot)","symptoms":"Kahverengi lekeler","management":"Fungisit"},
+
+  {"name":"Orange___Haunglongbing_(Citrus_greening)","symptoms":"Yaprak sararma","management":"Zararlı kontrolü"},
+
+  {"name":"Peach___Bacterial_spot","symptoms":"Lekeler","management":"Bakır ilaç"},
+  {"name":"Peach___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
+
+  {"name":"Pepper,_bell___Bacterial_spot","symptoms":"Koyu lekeler","management":"Bakır ilaç"},
+  {"name":"Pepper,_bell___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
+
+  {"name":"Potato___Early_blight","symptoms":"Halka lekeler","management":"Fungisit"},
+  {"name":"Potato___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
+  {"name":"Potato___Late_blight","symptoms":"Çürüme","management":"Bitkiyi kaldır"},
+
+  {"name":"Raspberry___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
+  {"name":"Soybean___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
+
+  {"name":"Squash___Powdery_mildew","symptoms":"Beyaz tabaka","management":"Fungisit"},
+
+  {"name":"Strawberry___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
+  {"name":"Strawberry___Leaf_scorch","symptoms":"Yaprak yanığı","management":"Temizle"},
+
+  {"name":"Tomato___Bacterial_spot","symptoms":"Küçük lekeler","management":"Bakır ilaç"},
+  {"name":"Tomato___Early_blight","symptoms":"Kahverengi halkalar","management":"Fungisit"},
+  {"name":"Tomato___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
+  {"name":"Tomato___Late_blight","symptoms":"Hızlı çürüme","management":"Bitkiyi kaldır"},
+  {"name":"Tomato___Leaf_Mold","symptoms":"Küf","management":"Nem azalt"},
+  {"name":"Tomato___Septoria_leaf_spot","symptoms":"Gri lekeler","management":"Fungisit"},
+  {"name":"Tomato___Spider_mites Two-spotted_spider_mite","symptoms":"Sararma","management":"Neem yağı"},
+  {"name":"Tomato___Target_Spot","symptoms":"Hedef lekeler","management":"Fungisit"},
+  {"name":"Tomato___Tomato_mosaic_virus","symptoms":"Mozaik desen","management":"Bitkiyi kaldır"},
+  {"name":"Tomato___Tomato_Yellow_Leaf_Curl_Virus","symptoms":"Yaprak kıvrımı","management":"Beyaz sinek kontrolü"}
+]

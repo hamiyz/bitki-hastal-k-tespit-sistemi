@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Çiftçinin Dostu</string>
+    <string name="descriptionImage">Fotoğraf alanı</string>
+    <string name="title_activity_details">Detaylar</string>
+    <string name="subtitle_1">Belirtiler</string>
+    <string name="subtitle_2">Çözüm</string>
+</resources>
