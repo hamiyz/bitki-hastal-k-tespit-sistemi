@@ -1,6 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_app_gradient">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
+        android:background="@drawable/bg_header_green">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hakkında"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/opensans_bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bitki Hastalık Tespit Sistemi"
+            android:textColor="#EAF7EE"
+            android:textSize="13sp"
+            android:fontFamily="@font/opensans_regular"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_white"
+                android:elevation="5dp"
+                android:padding="18dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🌿 Uygulama Amacı"
+                    android:textColor="#138A36"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bu uygulama, bitki yaprak görüntülerini analiz ederek olası hastalıkları tespit etmek amacıyla geliştirilmiştir. Kullanıcı kamera ile fotoğraf çekebilir veya galeriden bir yaprak görüntüsü seçerek analiz yapabilir."
+                    android:textColor="#1F2933"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:lineSpacingExtra="4dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_white"
+                android:elevation="5dp"
+                android:padding="18dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🤖 Kullanılan Teknolojiler"
+                    android:textColor="#138A36"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Android Studio\n• Kotlin\n• TensorFlow Lite\n• Derin Öğrenme\n• Görüntü Sınıflandırma\n• PlantVillage veri seti"
+                    android:textColor="#1F2933"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:lineSpacingExtra="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_white"
+                android:elevation="5dp"
+                android:padding="18dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📌 Özellikler"
+                    android:textColor="#138A36"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Kamera ile yaprak fotoğrafı çekme\n• Galeriden görüntü seçme\n• Hastalık tahmini yapma\n• Güven oranı gösterme\n• Hastalık belirtileri ve çözüm önerileri\n• Geçmiş analizleri kaydetme\n• Yaprak olmayan görseller için uyarı verme"
+                    android:textColor="#1F2933"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:lineSpacingExtra="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_green_light"
+                android:elevation="5dp"
+                android:padding="18dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="⚠️ Not"
+                    android:textColor="#138A36"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bu uygulama eğitim ve bitirme projesi amacıyla geliştirilmiştir. Sonuçlar kesin tarımsal teşhis yerine ön bilgilendirme amacı taşır."
+                    android:textColor="#1F2933"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:lineSpacingExtra="4dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/bg_card_white"
+        android:elevation="8dp">
+
+        <TextView
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="⌂\nAna Sayfa"
+            android:textColor="#6B7280"
+            android:textSize="12sp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/navHistory"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="◷\nGeçmiş"
+            android:textColor="#6B7280"
+            android:textSize="12sp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/navAbout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="ⓘ\nHakkında"
+            android:textColor="#138A36"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+</LinearLayout>

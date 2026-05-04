@@ -1,76 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="5dp"
-    android:layout_gravity="center"
-    android:padding="8dp"
-    android:background="@drawable/dialog_bg">
-
-    <TextView
-        android:id="@+id/pltd_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="26sp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/colorAccent"
-        android:layout_marginHorizontal="10dp"/>
+    android:background="@android:color/transparent"
+    android:padding="16dp">
 
     <LinearLayout
-        android:id="@+id/border"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/yellow"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginVertical="5dp"
-        android:layout_below="@id/pltd_name"/>
-
-    <TextView
-        android:id="@+id/subtitle_1"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/border"
-        android:text="@string/subtitle_1"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold|italic"
-        android:layout_marginVertical="10dp"/>
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="22dp">
 
-    <TextView
-        android:id="@+id/symptoms"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textAlignment="gravity"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
-        android:layout_below="@id/subtitle_1"
-        android:layout_marginHorizontal="10dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"/>
+        <TextView
+            android:id="@+id/dialogTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hastalık Detayları"
+            android:textColor="#138A36"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
 
-    <TextView
-        android:id="@+id/subtitle_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/symptoms"
-        android:text="@string/subtitle_2"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold|italic"
-        android:layout_marginVertical="10dp"/>
+        <TextView
+            android:id="@+id/pltd_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hastalık Adı"
+            android:textColor="#1F2933"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="18dp" />
 
-    <TextView
-        android:id="@+id/management"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textAlignment="gravity"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
-        android:layout_below="@id/subtitle_2"
-        android:layout_marginHorizontal="10dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#EAF7EE"
+            android:padding="14dp"
+            android:layout_marginBottom="14dp">
 
-</RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Belirtiler"
+                android:textColor="#138A36"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/symptoms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Belirti bilgisi burada gösterilecek."
+                android:textColor="#1F2933"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F7F8FA"
+            android:padding="14dp"
+            android:layout_marginBottom="18dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Çözüm / Yönetim Önerileri"
+                android:textColor="#138A36"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/management"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Çözüm bilgisi burada gösterilecek."
+                android:textColor="#1F2933"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/closeDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Kapat"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:backgroundTint="#138A36" />
+
+    </LinearLayout>
+</ScrollView>

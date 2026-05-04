@@ -26,7 +26,7 @@ import java.nio.charset.Charset
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-
+import android.widget.Button
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mClassifier: Classifier
@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
     private var ManageV: TextView? = null
 
     private val mCameraRequestCode = 0
+
+    private val mGalleryRequestCode = 1
     private val mInputSize = 224
     private val mModelPath = "model.tflite"
     private val mLabelPath = "labels.txt"
@@ -80,8 +82,31 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, mCameraRequestCode)
         }
 
+        mGalleryButton.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, mGalleryRequestCode)
+        }
+
         historyButton.setOnClickListener {
             val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        // Alt menü - Ana Sayfa
+        navHome.setOnClickListener {
+            Toast.makeText(this, "Zaten ana sayfadasınız", Toast.LENGTH_SHORT).show()
+        }
+
+        // Alt menü - Geçmiş
+        navHistory.setOnClickListener {
+            val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Alt menü - Hakkında
+        navAbout.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
         }
     }
@@ -89,100 +114,119 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == mCameraRequestCode && resultCode == Activity.RESULT_OK && data != null) {
-            try {
-                val photo = data.extras?.get("data") as? Bitmap
+        if (resultCode != Activity.RESULT_OK || data == null) {
+            return
+        }
 
-                if (photo == null) {
-                    mResultTextView.text = "Fotoğraf alınamadı"
-                    return
+        try {
+            val photo: Bitmap? = when (requestCode) {
+                mCameraRequestCode -> {
+                    data.extras?.get("data") as? Bitmap
                 }
 
-                loadingBar.visibility = View.VISIBLE
-                loadingText.visibility = View.VISIBLE
-                warningText.visibility = View.GONE
-                confidenceBar.progress = 0
-
-                mResultTextView.text = "Analiz ediliyor..."
-                mResultTextView_2.text = ""
-
-                mBitmap = scaleImage(photo)
-                mPhotoImageView.setImageBitmap(mBitmap)
-
-                val modelOutput = mClassifier.recognizeImage(mBitmap).firstOrNull()
-
-                lastRawResult = modelOutput?.title ?: "Bilinmiyor"
-
-                val confidenceValue = (modelOutput?.confidence ?: 0f) * 100
-                lastConfidence = "%.2f%%".format(confidenceValue)
-                confidenceBar.progress = confidenceValue.toInt()
-
-                if (lastRawResult == "No_Leaf") {
-                    lastCleanResult = "Yaprak algılanamadı"
-
-                    mResultTextView.text = lastCleanResult
-                    mResultTextView_2.text = "Lütfen sadece bitki yaprağı fotoğrafı çekin."
-                    mResultTextView.setTextColor(Color.rgb(198, 40, 40))
-
-                    warningText.visibility = View.VISIBLE
-                    warningText.text = "⚠️ Yaprak bulunamadı!"
-
-                    loadingBar.visibility = View.GONE
-                    loadingText.visibility = View.GONE
-                    return
+                mGalleryRequestCode -> {
+                    val selectedImageUri = data.data
+                    if (selectedImageUri != null) {
+                        MediaStore.Images.Media.getBitmap(contentResolver, selectedImageUri)
+                    } else {
+                        null
+                    }
                 }
 
-                if (confidenceValue < 50) {
-                    lastRawResult = "Bilinmiyor"
-                    lastCleanResult = "Sonuç güvenilir değil"
-
-                    mResultTextView.text = lastCleanResult
-                    mResultTextView_2.text = "Güven düşük: $lastConfidence"
-                    mResultTextView.setTextColor(Color.rgb(198, 40, 40))
-
-                    warningText.visibility = View.VISIBLE
-                    warningText.text = "⚠️ Fotoğraf net değil veya yaprak algılanamadı."
-
-                    loadingBar.visibility = View.GONE
-                    loadingText.visibility = View.GONE
-                    return
-                }
-
-                lastCleanResult = translateLabel(lastRawResult)
-
-                mResultTextView.text = lastCleanResult
-                mResultTextView_2.text = "Güven: $lastConfidence"
-
-                warningText.visibility = View.GONE
-
-                if (lastRawResult.contains("healthy", ignoreCase = true)) {
-                    mResultTextView.setTextColor(Color.rgb(46, 125, 50))
-                } else {
-                    mResultTextView.setTextColor(Color.rgb(198, 40, 40))
-                }
-
-                lastImagePath = saveBitmapToInternalStorage(mBitmap)
-                saveHistory(lastImagePath, lastCleanResult, lastConfidence)
-
-                loadingBar.visibility = View.GONE
-                loadingText.visibility = View.GONE
-
-                val fadeIn = AlphaAnimation(0f, 1f)
-                fadeIn.duration = 600
-                resultCard.startAnimation(fadeIn)
-
-            } catch (e: Exception) {
-                e.printStackTrace()
-
-                loadingBar.visibility = View.GONE
-                loadingText.visibility = View.GONE
-
-                mResultTextView.text = "Analiz sırasında hata oluştu"
-                Toast.makeText(this, "Analiz yapılamadı", Toast.LENGTH_SHORT).show()
+                else -> null
             }
+
+            if (photo == null) {
+                mResultTextView.text = "Fotoğraf alınamadı"
+                return
+            }
+
+            analyzeBitmap(photo)
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+
+            loadingBar.visibility = View.GONE
+            loadingText.visibility = View.GONE
+
+            mResultTextView.text = "Analiz sırasında hata oluştu"
+            Toast.makeText(this, "Analiz yapılamadı", Toast.LENGTH_SHORT).show()
         }
     }
+    private fun analyzeBitmap(photo: Bitmap) {
+        loadingBar.visibility = View.VISIBLE
+        loadingText.visibility = View.VISIBLE
+        warningText.visibility = View.GONE
+        confidenceBar.progress = 0
 
+        mResultTextView.text = "Analiz ediliyor..."
+        mResultTextView_2.text = ""
+
+        mBitmap = scaleImage(photo)
+        mPhotoImageView.setImageBitmap(mBitmap)
+
+        val modelOutput = mClassifier.recognizeImage(mBitmap).firstOrNull()
+
+        lastRawResult = modelOutput?.title ?: "Bilinmiyor"
+
+        val confidenceValue = (modelOutput?.confidence ?: 0f) * 100
+        lastConfidence = "%.2f%%".format(confidenceValue)
+        confidenceBar.progress = confidenceValue.toInt()
+
+        if (lastRawResult == "No_Leaf") {
+            lastCleanResult = "Yaprak algılanamadı"
+
+            mResultTextView.text = lastCleanResult
+            mResultTextView_2.text = "Lütfen sadece bitki yaprağı fotoğrafı çekin."
+            mResultTextView.setTextColor(Color.rgb(198, 40, 40))
+
+            warningText.visibility = View.VISIBLE
+            warningText.text = "⚠️ Yaprak bulunamadı!"
+
+            loadingBar.visibility = View.GONE
+            loadingText.visibility = View.GONE
+            return
+        }
+
+        if (confidenceValue < 50) {
+            lastRawResult = "Bilinmiyor"
+            lastCleanResult = "Sonuç güvenilir değil"
+
+            mResultTextView.text = lastCleanResult
+            mResultTextView_2.text = "Güven düşük: $lastConfidence"
+            mResultTextView.setTextColor(Color.rgb(198, 40, 40))
+
+            warningText.visibility = View.VISIBLE
+            warningText.text = "⚠️ Fotoğraf net değil veya yaprak algılanamadı."
+
+            loadingBar.visibility = View.GONE
+            loadingText.visibility = View.GONE
+            return
+        }
+
+        lastCleanResult = translateLabel(lastRawResult)
+
+        mResultTextView.text = lastCleanResult
+        mResultTextView_2.text = "Güven: $lastConfidence"
+
+        warningText.visibility = View.GONE
+
+        if (lastRawResult.contains("healthy", ignoreCase = true)) {
+            mResultTextView.setTextColor(Color.rgb(46, 125, 50))
+        } else {
+            mResultTextView.setTextColor(Color.rgb(198, 40, 40))
+        }
+
+        lastImagePath = saveBitmapToInternalStorage(mBitmap)
+        saveHistory(lastImagePath, lastCleanResult, lastConfidence)
+
+        loadingBar.visibility = View.GONE
+        loadingText.visibility = View.GONE
+
+        val fadeIn = AlphaAnimation(0f, 1f)
+        fadeIn.duration = 600
+        resultCard.startAnimation(fadeIn)
+    }
     private fun saveBitmapToInternalStorage(bitmap: Bitmap): String {
         val filename = "prediction_${System.currentTimeMillis()}.jpg"
         val file = File(filesDir, filename)
@@ -240,6 +284,11 @@ class MainActivity : AppCompatActivity() {
         NameV = myDialog.findViewById(R.id.pltd_name)
         SymptomsV = myDialog.findViewById(R.id.symptoms)
         ManageV = myDialog.findViewById(R.id.management)
+        val closeDialogButton = myDialog.findViewById<Button>(R.id.closeDialogButton)
+
+        closeDialogButton.setOnClickListener {
+            myDialog.dismiss()
+        }
 
         NameV!!.text = lastCleanResult
 
@@ -344,7 +393,7 @@ class MainActivity : AppCompatActivity() {
             "Peach___Bacterial_spot" -> "Şeftali - Bakteriyel Leke"
             "Peach___healthy" -> "Şeftali - Sağlıklı"
 
-            "Pepper,_bell___Bacterial_spot" -> "Biber - Bakteriyel Leke"
+            "Pepper,_bell___Bacterial_spot" -> "Biber - Bakteriyel Leke"    
             "Pepper,_bell___healthy" -> "Biber - Sağlıklı"
 
             "Potato___Early_blight" -> "Patates - Erken Yanıklık"

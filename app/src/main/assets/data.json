@@ -1,49 +1,54 @@
-[
-  {"name":"No_Leaf","symptoms":"Görüntüde bitki yaprağı tespit edilmedi.","management":"Lütfen yalnızca bitki yaprağını net, yakın ve iyi ışıkta fotoğraflayın."},
-
-  {"name":"Apple___Apple_scab","symptoms":"Yaprakta koyu lekeler","management":"Fungisit kullan"},
-  {"name":"Apple___Black_rot","symptoms":"Meyvede çürüme","management":"Enfekte dalları kes"},
-  {"name":"Apple___Cedar_apple_rust","symptoms":"Turuncu lekeler","management":"Mantar ilacı"},
-  {"name":"Apple___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
-
-  {"name":"Blueberry___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
-
-  {"name":"Cherry_(including_sour)___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
-  {"name":"Cherry_(including_sour)___Powdery_mildew","symptoms":"Beyaz toz","management":"Fungisit"},
-
-  {"name":"Grape___Black_rot","symptoms":"Siyah çürüme","management":"İlaçla"},
-  {"name":"Grape___Esca_(Black_Measles)","symptoms":"Sararma","management":"Budama"},
-  {"name":"Grape___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
-  {"name":"Grape___Leaf_blight_(Isariopsis_Leaf_Spot)","symptoms":"Kahverengi lekeler","management":"Fungisit"},
-
-  {"name":"Orange___Haunglongbing_(Citrus_greening)","symptoms":"Yaprak sararma","management":"Zararlı kontrolü"},
-
-  {"name":"Peach___Bacterial_spot","symptoms":"Lekeler","management":"Bakır ilaç"},
-  {"name":"Peach___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
-
-  {"name":"Pepper,_bell___Bacterial_spot","symptoms":"Koyu lekeler","management":"Bakır ilaç"},
-  {"name":"Pepper,_bell___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
-
-  {"name":"Potato___Early_blight","symptoms":"Halka lekeler","management":"Fungisit"},
-  {"name":"Potato___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
-  {"name":"Potato___Late_blight","symptoms":"Çürüme","management":"Bitkiyi kaldır"},
-
-  {"name":"Raspberry___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
-  {"name":"Soybean___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
-
-  {"name":"Squash___Powdery_mildew","symptoms":"Beyaz tabaka","management":"Fungisit"},
-
-  {"name":"Strawberry___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
-  {"name":"Strawberry___Leaf_scorch","symptoms":"Yaprak yanığı","management":"Temizle"},
-
-  {"name":"Tomato___Bacterial_spot","symptoms":"Küçük lekeler","management":"Bakır ilaç"},
-  {"name":"Tomato___Early_blight","symptoms":"Kahverengi halkalar","management":"Fungisit"},
-  {"name":"Tomato___healthy","symptoms":"Belirti yok","management":"Sağlıklı"},
-  {"name":"Tomato___Late_blight","symptoms":"Hızlı çürüme","management":"Bitkiyi kaldır"},
-  {"name":"Tomato___Leaf_Mold","symptoms":"Küf","management":"Nem azalt"},
-  {"name":"Tomato___Septoria_leaf_spot","symptoms":"Gri lekeler","management":"Fungisit"},
-  {"name":"Tomato___Spider_mites Two-spotted_spider_mite","symptoms":"Sararma","management":"Neem yağı"},
-  {"name":"Tomato___Target_Spot","symptoms":"Hedef lekeler","management":"Fungisit"},
-  {"name":"Tomato___Tomato_mosaic_virus","symptoms":"Mozaik desen","management":"Bitkiyi kaldır"},
-  {"name":"Tomato___Tomato_Yellow_Leaf_Curl_Virus","symptoms":"Yaprak kıvrımı","management":"Beyaz sinek kontrolü"}
-]
+{
+  "plant_disease": [
+    {
+      "name": "No_Leaf",
+      "symptoms": "Görüntüde bitki yaprağı tespit edilmedi. Fotoğrafta yaprak yerine masa, toprak, insan eli, saksı, gövde, meyve veya arka plan gibi farklı nesneler bulunuyor olabilir.",
+      "management": "Lütfen yalnızca bitki yaprağını net, yakın ve iyi ışık alan bir ortamda fotoğraflayın. Yaprağın görüntünün büyük bölümünü kaplamasına dikkat edin. Bulanık, karanlık veya çok uzak çekilmiş fotoğraflar modelin doğru tahmin yapmasını zorlaştırabilir."
+    },
+    {
+      "name": "Apple___Apple_scab",
+      "symptoms": "Elma kara leke hastalığında yapraklarda zeytin yeşili, kahverengi veya siyaha yakın yuvarlak lekeler görülebilir. Lekeler zamanla büyüyerek yaprak yüzeyinde kadifemsi bir görünüm oluşturabilir. İleri dönemde yapraklarda sararma, erken dökülme ve meyve üzerinde kabuklu lekeler meydana gelebilir.",
+      "management": "Bahçede dökülen enfekte yapraklar temizlenmeli veya toprağa karıştırılarak hastalık kaynağı azaltılmalıdır. Ağaçların hava almasını sağlamak için uygun budama yapılmalıdır. Yağışlı ve nemli dönemlerde hastalık riski artacağı için koruyucu fungisit uygulamaları gerekebilir. Kimyasal uygulamalarda mutlaka yerel tarım uzmanı önerisi ve etiket talimatları dikkate alınmalıdır."
+    },
+    {
+      "name": "Apple___Black_rot",
+      "symptoms": "Elma siyah çürüklük hastalığında yapraklarda morumsu kenarlı kahverengi lekeler, meyvelerde ise zamanla büyüyen koyu renkli çürüme alanları görülebilir. Hastalık ilerledikçe meyvede buruşma ve mumyalaşma oluşabilir. Dallarda kanser benzeri koyu renkli yaralar meydana gelebilir.",
+      "management": "Hastalıklı meyveler, kurumuş dallar ve enfekte bitki artıkları bahçeden uzaklaştırılmalıdır. Budama sırasında hastalıklı dallar sağlıklı dokudan kesilmeli ve kullanılan aletler temizlenmelidir. Bahçede hava sirkülasyonunu artırmak hastalık gelişimini azaltır. Gerekli durumlarda uygun koruyucu ilaçlama programı uygulanabilir."
+    },
+    {
+      "name": "Apple___Cedar_apple_rust",
+      "symptoms": "Sedir elma pası hastalığında elma yapraklarının üst yüzeyinde parlak sarı veya turuncu lekeler oluşur. Lekeler zamanla koyulaşabilir ve yaprağın alt yüzeyinde çıkıntılı yapılar gelişebilir. Yoğun enfeksiyonda yaprak dökülmesi ve ağaçta zayıflama görülebilir.",
+      "management": "Hastalığın gelişiminde ardıç türleri ara konukçu olabildiğinden bahçe çevresindeki konukçu bitkiler kontrol edilmelidir. Enfekte yapraklar ve bitki artıkları uzaklaştırılmalıdır. Ağaçlar iyi havalanacak şekilde budanmalıdır. Hastalık riski yüksek bölgelerde koruyucu fungisit uygulamaları değerlendirilebilir."
+    },
+    {
+      "name": "Apple___healthy",
+      "symptoms": "Yaprakta belirgin hastalık belirtisi görülmemektedir. Yaprak rengi ve dokusu sağlıklı görünmektedir. Leke, küf, yanıklık, çürüme veya şekil bozukluğu belirtisi tespit edilmemiştir.",
+      "management": "Bitkinin sağlıklı kalması için düzenli sulama, yeterli güneş ışığı, dengeli gübreleme ve iyi bahçe hijyeni sağlanmalıdır. Yapraklar belirli aralıklarla kontrol edilmeli, hastalık belirtisi görülürse erken müdahale edilmelidir."
+    },
+    {
+      "name": "Tomato___Early_blight",
+      "symptoms": "Domates erken yanıklığında genellikle alt yapraklarda kahverengi, dairesel ve iç içe halkalar şeklinde lekeler oluşur. Lekelerin çevresinde sararma görülebilir. Hastalık ilerledikçe yapraklar kurur, dökülür ve bitkinin fotosentez kapasitesi azalır. Meyvelerde koyu, çökük lekeler de gelişebilir.",
+      "management": "Hastalıklı yapraklar temizlenmeli ve bitki artıkları ortamdan uzaklaştırılmalıdır. Domates, patates, biber ve patlıcan gibi aynı familyadan bitkilerle arka arkaya ekim yapılmamalıdır. Damla sulama tercih edilmeli, yaprakların uzun süre ıslak kalması önlenmelidir. Bitkiler arasında yeterli mesafe bırakılarak hava akışı artırılmalıdır. Gerekirse uygun fungisit uygulaması yapılmalıdır."
+    },
+    {
+      "name": "Tomato___Late_blight",
+      "symptoms": "Domates geç yanıklığında yapraklarda su emmiş gibi görünen koyu yeşil veya kahverengi lekeler oluşabilir. Nemli havalarda yaprak altlarında beyazımsı küf tabakası görülebilir. Hastalık çok hızlı yayılabilir ve kısa sürede yaprak, gövde ve meyvelerde çürümeye neden olabilir.",
+      "management": "Hastalıklı bitkiler ve enfekte yapraklar hızlıca uzaklaştırılmalıdır. Yaprakların ıslak kalmasını önlemek için sabah sulama veya damla sulama tercih edilmelidir. Bitkiler arasında hava akışı sağlanmalı, sık dikimden kaçınılmalıdır. Geç yanıklık hızla yayıldığı için şüpheli belirtilerde yerel tarım danışmanına başvurulmalı ve uygun mücadele programı uygulanmalıdır."
+    },
+    {
+      "name": "Potato___Early_blight",
+      "symptoms": "Patates erken yanıklığında yapraklarda kahverengi, halkalı ve hedef tahtasına benzeyen lekeler görülür. Lekelerin çevresinde sararma olabilir. Hastalık ilerledikçe yaprak dokusu kurur ve bitki zayıflar. Yumru gelişimi olumsuz etkilenebilir.",
+      "management": "Sağlıklı tohumluk kullanılmalı, bitki artıkları tarladan uzaklaştırılmalı ve ürün rotasyonu uygulanmalıdır. Sulama yaprakları ıslatmayacak şekilde yapılmalıdır. Bitkinin güçlü gelişmesi için dengeli gübreleme önemlidir. Yoğun hastalık baskısında uygun fungisit uygulamaları değerlendirilebilir."
+    },
+    {
+      "name": "Potato___Late_blight",
+      "symptoms": "Patates geç yanıklığında yapraklarda koyu kahverengi veya siyaha yakın, hızla büyüyen lekeler oluşur. Nemli koşullarda yaprak altlarında beyaz spor tabakası görülebilir. Hastalık kısa sürede tüm bitkiye yayılabilir ve yumrularda kahverengi çürüklüklere neden olabilir.",
+      "management": "Hastalıklı bitkiler tarladan uzaklaştırılmalı, hasat sonrası bitki artıkları temizlenmelidir. Yaprakların uzun süre nemli kalması önlenmeli ve sık dikimden kaçınılmalıdır. Geç yanıklık ciddi verim kaybına yol açabileceği için erken dönemde uzman görüşü alınmalı ve uygun koruyucu mücadele yapılmalıdır."
+    },
+    {
+      "name": "Tomato___healthy",
+      "symptoms": "Domates yaprağında belirgin hastalık belirtisi görülmemektedir. Yaprak rengi, damar yapısı ve genel görünüm sağlıklı kabul edilebilir. Leke, sararma, küf tabakası veya yaprak kıvrılması tespit edilmemiştir.",
+      "management": "Bitkinin sağlıklı kalması için düzenli sulama, yeterli ışık, uygun bitki aralığı ve dengeli besleme sağlanmalıdır. Aşırı sulamadan kaçınılmalı, yapraklar gereksiz yere ıslatılmamalıdır. Bitki düzenli aralıklarla kontrol edilmelidir."
+    }
+  ]
+}
