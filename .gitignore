@@ -18,3 +18,10 @@ Thumbs.db
 *.apk
 *.aab
 *.ap_
+
+local.properties
+.idea/
+.gradle/
+build/
+*/build/
+*.iml
