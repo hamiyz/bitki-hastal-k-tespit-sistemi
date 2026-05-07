@@ -238,13 +238,15 @@ Uygulama çıktısında:
 yer almaktadır.
 
 ---
-
 ## Test Videosu
+
+Aşağıdaki GIF, uygulamanın çalışma sürecini göstermektedir.
+
+![Uygulama Test Videosu](./test_video/test_video.gif)
 
 Videonun tam halini izlemek için:
 
-[![Test Videosunu İzle](https://img.shields.io/badge/▶%20Test%20Videosunu%20İzle-28a745?style=for-the-badge)](test_video/testt.mp4)
-
+[▶ Test Videosunu İzle](./test_video/test_video.mp4)
 
 ---
 
