@@ -1,51 +1,71 @@
-# 🌿 Derin Öğrenme Tabanlı Mobil Bitki Hastalık Tespit Sistemi
+# 🌿 Bitki Hastalık Tespit Sistemi
 
-Bu proje, bitki yapraklarında görülen hastalıkların derin öğrenme yöntemleri kullanılarak tespit edilmesini sağlayan mobil tabanlı bir uygulamadır. Kullanıcı, Android uygulama üzerinden kamera veya galeri aracılığıyla bitki yaprağı görüntüsü seçerek hastalık tahmini alabilir.
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-Keras-orange?style=for-the-badge&logo=tensorflow)
+![Android](https://img.shields.io/badge/Android-Kotlin-green?style=for-the-badge&logo=android)
+![TensorFlow Lite](https://img.shields.io/badge/TensorFlow-Lite-ff6f00?style=for-the-badge&logo=tensorflow)
+![GitHub](https://img.shields.io/badge/Project-Bitirme%20Projesi-181717?style=for-the-badge&logo=github)
 
-Proje kapsamında eğitilen görüntü sınıflandırma modeli, Android uygulamaya TensorFlow Lite formatında entegre edilmiştir. Böylece model, mobil cihaz üzerinde doğrudan çalışarak hızlı ve pratik tahmin sonuçları sunmaktadır.
-
----
-
-## 📌 Projenin Amacı
-
-Tarımsal üretimde bitki hastalıklarının erken tespit edilmesi, ürün kayıplarını azaltmak açısından büyük önem taşımaktadır. Bu projenin amacı, bitki yaprağı görüntülerini analiz ederek hastalık durumunu tahmin eden kullanıcı dostu bir mobil sistem geliştirmektir.
-
-Sistem sayesinde kullanıcılar:
-
-- Bitki yaprağı görüntüsü üzerinden hastalık tahmini alabilir.
-- Tahmin sonucunu ve güven oranını görüntüleyebilir.
-- Hastalık hakkında açıklama ve çözüm önerilerine ulaşabilir.
-- Yaprak olmayan görüntüler için uyarı alabilir.
+Derin öğrenme tabanlı mobil bitki hastalık tespit sistemi.  
+Bu proje, bitki yaprağı görüntülerini analiz ederek hastalık tahmini yapan ve sonucu Android mobil uygulama üzerinden kullanıcıya gösteren bir bitirme projesidir.
 
 ---
 
-## 🚀 Temel Özellikler
+## 📑 İçindekiler
 
-- Android mobil uygulama üzerinden görüntü seçme
-- Kamera veya galeri desteği
-- Derin öğrenme tabanlı hastalık tahmini
-- TensorFlow Lite model entegrasyonu
-- Tahmin güven oranı gösterimi
-- Hastalık açıklaması ve öneri metinleri
-- `No_Leaf` sınıfı ile yaprak olmayan görüntüleri ayırt etme
-- Kullanıcı dostu arayüz
-- Test videosu ve model dosyalarının proje içerisinde saklanması
+- [Proje Hakkında](#-proje-hakkında)
+- [Projenin Amacı](#-projenin-amacı)
+- [Kullanılan Teknolojiler](#-kullanılan-teknolojiler)
+- [Proje Yapısı](#-proje-yapısı)
+- [Model Bilgisi](#-model-bilgisi)
+- [Mobil Uygulama](#-mobil-uygulama)
+- [Test Videosu](#-test-videosu)
+- [Kurulum](#-kurulum)
+- [Çalışma Mantığı](#-çalışma-mantığı)
+- [Gelecek Geliştirmeler](#-gelecek-geliştirmeler)
+- [Geliştirici](#-geliştirici)
 
 ---
 
-## 🎥 Test Videosu
+## 📌 Proje Hakkında
 
-Aşağıdaki video, Android uygulamanın çalışma sürecini göstermektedir.
+Bu proje, bitki yapraklarında görülen hastalıkların görüntü işleme ve derin öğrenme yöntemleriyle tespit edilmesini amaçlamaktadır.
 
-[▶️ Test Videosunu İzle](test_video/test_video.mp4)
+Proje iki ana bölümden oluşmaktadır:
 
-## 🧠 Kullanılan Teknolojiler
+1. **Makine Öğrenmesi / Derin Öğrenme Modeli**
+2. **Android Mobil Uygulama**
 
-| Alan | Teknoloji |
+Model, bitki yaprağı görüntülerinden hastalık sınıfını tahmin eder. Android uygulama ise kullanıcının kamera veya galeri üzerinden seçtiği görüntüyü modele gönderir ve tahmin sonucunu ekranda gösterir.
+
+---
+
+## 🎯 Projenin Amacı
+
+Tarımsal üretimde bitki hastalıklarının erken tespiti, ürün kayıplarını azaltmak açısından önemlidir. Bu proje ile kullanıcıların bitki yaprağı fotoğrafı üzerinden hızlı ve pratik şekilde hastalık tahmini alabilmesi hedeflenmiştir.
+
+Sistem kullanıcıya:
+
+- Hastalık tahmini,
+- Tahmin güven oranı,
+- Türkçe hastalık adı,
+- Hastalık açıklaması,
+- Çözüm / yönetim önerisi
+
+sunmaktadır.
+
+Ayrıca `No_Leaf` sınıfı ile yaprak olmayan görsellerin tespit edilmesi amaçlanmıştır.
+
+---
+
+## 🧰 Kullanılan Teknolojiler
+
+| Alan | Kullanılan Teknoloji |
 |---|---|
-| Model Eğitimi | Python, TensorFlow, Keras |
-| Model Dönüştürme | TensorFlow Lite |
-| Mobil Uygulama | Android Studio, Kotlin |
+| Programlama | Python, Kotlin |
+| Derin Öğrenme | TensorFlow, Keras |
+| Mobil Model | TensorFlow Lite |
+| Mobil Uygulama | Android Studio |
 | Eğitim Ortamı | Google Colab |
 | Versiyon Kontrol | Git, GitHub |
 
@@ -59,7 +79,7 @@ bitki-hastal-k-tespit-sistemi/
 ├── app/                     # Android uygulama kaynak dosyaları
 ├── gradle/                  # Gradle yapılandırma dosyaları
 ├── models/                  # Eğitilmiş model dosyaları
-│   ├── model.keras           # Eğitim sonrası kaydedilen model
+│   ├── model.keras           # Eğitim sonrası model dosyası
 │   └── model.tflite          # Android uygulamada kullanılan model
 │
 ├── notebooks/               # Google Colab eğitim dosyaları
@@ -68,5 +88,5 @@ bitki-hastal-k-tespit-sistemi/
 │
 ├── README.md                # Proje açıklama dosyası
 ├── .gitignore               # GitHub'a gönderilmeyecek dosyalar
-├── build.gradle             # Proje Gradle dosyası
+├── build.gradle             # Android Gradle dosyası
 └── settings.gradle          # Android Studio ayar dosyası
