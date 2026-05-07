@@ -181,14 +181,14 @@ class MainActivity : AppCompatActivity() {
             mResultTextView.setTextColor(Color.rgb(198, 40, 40))
 
             warningText.visibility = View.VISIBLE
-            warningText.text = "⚠️ Yaprak bulunamadı!"
+            warningText.text = "Yaprak bulunamadı!"
 
             loadingBar.visibility = View.GONE
             loadingText.visibility = View.GONE
             return
         }
 
-        if (confidenceValue < 50) {
+        if (confidenceValue < 30) {
             lastRawResult = "Bilinmiyor"
             lastCleanResult = "Sonuç güvenilir değil"
 
@@ -197,7 +197,7 @@ class MainActivity : AppCompatActivity() {
             mResultTextView.setTextColor(Color.rgb(198, 40, 40))
 
             warningText.visibility = View.VISIBLE
-            warningText.text = "⚠️ Fotoğraf net değil veya yaprak algılanamadı."
+            warningText.text = "Fotoğraf net değil veya yaprak algılanamadı."
 
             loadingBar.visibility = View.GONE
             loadingText.visibility = View.GONE
@@ -393,7 +393,7 @@ class MainActivity : AppCompatActivity() {
             "Peach___Bacterial_spot" -> "Şeftali - Bakteriyel Leke"
             "Peach___healthy" -> "Şeftali - Sağlıklı"
 
-            "Pepper,_bell___Bacterial_spot" -> "Biber - Bakteriyel Leke"    
+            "Pepper,_bell___Bacterial_spot" -> "Biber - Bakteriyel Leke"
             "Pepper,_bell___healthy" -> "Biber - Sağlıklı"
 
             "Potato___Early_blight" -> "Patates - Erken Yanıklık"

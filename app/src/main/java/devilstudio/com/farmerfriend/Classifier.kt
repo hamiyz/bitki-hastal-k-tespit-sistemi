@@ -20,7 +20,7 @@ class Classifier(assetManager: AssetManager, modelPath: String, labelPath: Strin
     private val MAX_RESULTS = 3
 
     // Düşük tutuyoruz ki sonuç tamamen boş dönmesin
-    private val THRESHOLD = 0.01f
+    private val THRESHOLD = 0.2f
 
     data class Recognition(
         var id: String = "",
@@ -78,11 +78,10 @@ class Classifier(assetManager: AssetManager, modelPath: String, labelPath: Strin
                 val g = value shr 8 and 0xFF
                 val b = value and 0xFF
 
-                // ÖNEMLİ:
-                // Modelin içine EfficientNet preprocess_input eklendiyse /255 YAPMIYORUZ.
-                byteBuffer.putFloat(r.toFloat())
-                byteBuffer.putFloat(g.toFloat())
-                byteBuffer.putFloat(b.toFloat())
+                // MobileNetV2 preprocess_input: [-1, +1]
+                byteBuffer.putFloat((r - 127.5f) / 127.5f)
+                byteBuffer.putFloat((g - 127.5f) / 127.5f)
+                byteBuffer.putFloat((b - 127.5f) / 127.5f)
             }
         }
 

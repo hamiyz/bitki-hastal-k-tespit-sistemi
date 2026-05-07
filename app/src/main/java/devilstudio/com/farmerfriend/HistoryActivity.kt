@@ -1,5 +1,6 @@
 package devilstudio.com.farmerfriend
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -7,6 +8,7 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -17,12 +19,18 @@ import java.io.File
 class HistoryActivity : AppCompatActivity() {
 
     private lateinit var historyContainer: LinearLayout
+    private lateinit var clearHistoryButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)
 
         historyContainer = findViewById(R.id.historyContainer)
+        clearHistoryButton = findViewById(R.id.clearHistoryButton)
+
+        clearHistoryButton.setOnClickListener {
+            showClearHistoryDialog()
+        }
 
         loadHistory()
 
@@ -47,6 +55,27 @@ class HistoryActivity : AppCompatActivity() {
                 Toast.LENGTH_LONG
             ).show()
         }
+    }
+
+    private fun showClearHistoryDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Geçmişi Sil")
+            .setMessage("Tüm analiz geçmişi silinsin mi?")
+            .setPositiveButton("Sil") { _, _ ->
+                clearHistory()
+            }
+            .setNegativeButton("İptal", null)
+            .show()
+    }
+
+    private fun clearHistory() {
+        val prefs = getSharedPreferences("prediction_history", MODE_PRIVATE)
+        prefs.edit().remove("items").apply()
+
+        historyContainer.removeAllViews()
+        showEmptyMessage()
+
+        Toast.makeText(this, "Geçmiş silindi", Toast.LENGTH_SHORT).show()
     }
 
     private fun loadHistory() {

@@ -24,6 +24,7 @@
             android:textStyle="bold"
             android:fontFamily="@font/opensans_bold" />
 
+
         <TextView
             android:id="@+id/historySubtitle"
             android:layout_width="match_parent"
@@ -35,6 +36,7 @@
             android:layout_marginTop="4dp" />
 
     </LinearLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -50,6 +52,16 @@
             android:padding="18dp" />
 
     </ScrollView>
+    <Button
+        android:id="@+id/clearHistoryButton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/button_brown_gradient"
+        android:text="Geçmişi Sil"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/bottomNav"
@@ -92,5 +104,6 @@
             android:gravity="center" />
 
     </LinearLayout>
+
 
 </LinearLayout>
