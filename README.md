@@ -33,6 +33,12 @@ Sistem sayesinde kullanıcılar:
 
 ---
 
+## 🎥 Test Videosu
+
+Aşağıdaki video, Android uygulamanın çalışma sürecini göstermektedir.
+
+[▶️ Test Videosunu İzle](test_video/test_video.mp4)
+
 ## 🧠 Kullanılan Teknolojiler
 
 | Alan | Teknoloji |
