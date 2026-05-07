@@ -1,72 +1,43 @@
-\# Bitki Hastalık Tespit Sistemi
+# Bitki Hastalık Tespit Sistemi
 
+Bu proje, derin öğrenme tabanlı mobil bitki hastalık tespit sistemidir. Sistem, bitki yaprağı görüntülerini analiz ederek yaprakta hastalık olup olmadığını tespit eder ve kullanıcıya tahmin sonucunu Android uygulama üzerinden gösterir.
 
+## Projenin Amacı
 
-Bu proje, derin öğrenme tabanlı bir mobil bitki hastalık tespit sistemidir. Kullanıcı, Android uygulama üzerinden bitki yaprağı fotoğrafı yükleyerek veya kamera ile görüntü alarak hastalık tahmini yapabilir.
+Bu projenin amacı, tarımsal üretimde bitki hastalıklarının erken tespit edilmesine yardımcı olacak bir mobil uygulama geliştirmektir. Kullanıcı, bitki yaprağının fotoğrafını uygulamaya yükleyerek hastalık tahmini alabilir. Böylece hastalıkların daha erken fark edilmesi ve gerekli önlemlerin alınması hedeflenmektedir.
 
+## Kullanılan Teknolojiler
 
+- Python
+- TensorFlow / Keras
+- TensorFlow Lite
+- Google Colab
+- Android Studio
+- Kotlin
+- GitHub
 
-\## Projenin Amacı
+## Sistem Özellikleri
 
+- Bitki yaprağı görüntüsünden hastalık tahmini
+- Sağlıklı ve hastalıklı yaprak sınıflandırması
+- Yaprak olmayan görüntüler için `No_Leaf` sınıfı
+- Android mobil uygulama üzerinden analiz
+- Tahmin sonucu ve güven oranı gösterimi
+- Hastalık açıklaması ve çözüm önerisi sunma
+- Kullanıcı dostu mobil arayüz
 
-
-Projenin amacı, bitki yapraklarında görülen hastalıkların görüntü işleme ve derin öğrenme yöntemleriyle tespit edilmesini sağlamaktır. Sistem, hastalık sınıfını tahmin eder ve kullanıcıya hastalık hakkında temel bilgilendirme sunar.
-
-
-
-\## Kullanılan Teknolojiler
-
-
-
-\- Python
-
-\- TensorFlow / Keras
-
-\- TensorFlow Lite
-
-\- Android Studio
-
-\- Kotlin
-
-\- Google Colab
-
-\- GitHub
-
-
-
-\## Sistem Özellikleri
-
-
-
-\- Bitki yaprağı görüntüsünden hastalık tahmini
-
-\- Sağlıklı / hastalıklı sınıflandırma
-
-\- No Leaf sınıfı ile yaprak olmayan görüntüleri ayırt etme
-
-\- Mobil uygulama üzerinden tahmin sonucu gösterme
-
-\- Tahmin güven oranı gösterme
-
-\- Hastalık açıklaması ve çözüm önerisi sunma
-
-
-
-\## Proje Yapısı
-
-
+## Proje Yapısı
 
 ```text
-
 FarmerFriendApp/
-
-├── app/
-
-├── gradle/
-
+├── app/                    # Android uygulama dosyaları
+├── gradle/                 # Gradle yapılandırma dosyaları
+├── models/                 # Eğitilmiş model dosyaları
+│   ├── model.keras
+│   └── model.tflite
+├── notebooks/              # Google Colab eğitim dosyaları
+├── screenshots/            # Uygulama ekran görüntüleri
+├── videos/                 # Test videosu
+├── README.md
 ├── build.gradle
-
-├── settings.gradle
-
-└── README.md
-
+└── settings.gradle
