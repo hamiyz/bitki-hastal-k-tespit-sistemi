@@ -242,7 +242,7 @@ yer almaktadır.
 
 Aşağıdaki GIF, uygulamanın çalışma sürecini göstermektedir.
 
-![Uygulama Test Videosu](./test_video/test_video.gif)
+![Uygulama Test Videosu](./test_video/testt.gif)
 
 Videonun tam halini izlemek için:
 
