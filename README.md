@@ -37,7 +37,7 @@ FarmerFriendApp/
 │   └── model.tflite
 ├── notebooks/              # Google Colab eğitim dosyaları
 ├── screenshots/            # Uygulama ekran görüntüleri
-├── videos/                 # Test videosu
+├── test_videos/                 # Test videosu
 ├── README.md
 ├── build.gradle
 └── settings.gradle
