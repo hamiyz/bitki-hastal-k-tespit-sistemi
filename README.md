@@ -241,15 +241,10 @@ yer almaktadır.
 
 ## Test Videosu
 
-Aşağıdaki GIF, uygulamanın çalışma sürecini göstermektedir.
-
-![Uygulama Test Videosu](test_video/testt_video.mp4)
-
 Videonun tam halini izlemek için:
 
-[![Test Videosunu İzle](https://img.shields.io/badge/▶%20Test%20Videosunu%20İzle-28a745?style=for-the-badge)](test_video/testt_video.mp4)
+[![Test Videosunu İzle](https://img.shields.io/badge/▶%20Test%20Videosunu%20İzle-28a745?style=for-the-badge)](test_video/testt.mp4)
 
-> Not: Video veya GIF görünmüyorsa `test_video` klasöründe dosya adlarının `test_video.mp4` ve `test_video.gif` olduğundan emin olun.
 
 ---
 
