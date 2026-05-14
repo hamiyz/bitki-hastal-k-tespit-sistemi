@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F8FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <TextView
+            android:id="@+id/diseaseRecordTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hastalık Kaydı"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#145A2D"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp" />
+
+        <EditText
+            android:id="@+id/recordCityEditText"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="İl"
+            android:inputType="textCapWords"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:background="@drawable/bg_card_white"
+            android:textColor="#222222"
+            android:textColorHint="#888888" />
+
+        <EditText
+            android:id="@+id/recordDistrictEditText"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:hint="İlçe"
+            android:inputType="textCapWords"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:background="@drawable/bg_card_white"
+            android:textColor="#222222"
+            android:textColorHint="#888888" />
+
+        <Button
+            android:id="@+id/saveDiseaseRecordButton"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:text="Bölgesel Kaydı Oluştur"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_button_green" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -5,14 +5,19 @@ import android.app.Dialog
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
+import android.graphics.Paint
 import android.graphics.drawable.ColorDrawable
+import android.graphics.pdf.PdfDocument
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.animation.AlphaAnimation
+import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -26,7 +31,7 @@ import java.nio.charset.Charset
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import android.widget.Button
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mClassifier: Classifier
@@ -46,8 +51,8 @@ class MainActivity : AppCompatActivity() {
     private var ManageV: TextView? = null
 
     private val mCameraRequestCode = 0
-
     private val mGalleryRequestCode = 1
+
     private val mInputSize = 224
     private val mModelPath = "model.tflite"
     private val mLabelPath = "labels.txt"
@@ -92,19 +97,69 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        productButton.setOnClickListener {
+            if (lastCleanResult.isEmpty() || lastRawResult == "No_Leaf" || lastRawResult == "Bilinmiyor") {
+                Toast.makeText(this, "Önce geçerli bir hastalık analizi yapın", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, ProductActivity::class.java)
+                intent.putExtra("diseaseName", lastCleanResult)
+                startActivity(intent)
+            }
+        }
 
-        // Alt menü - Ana Sayfa
+        treatmentPlanButton.setOnClickListener {
+            if (lastCleanResult.isEmpty() || lastRawResult == "No_Leaf" || lastRawResult == "Bilinmiyor") {
+                Toast.makeText(this, "Önce geçerli bir hastalık analizi yapın", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, TreatmentPlanActivity::class.java)
+                intent.putExtra("diseaseName", lastCleanResult)
+                startActivity(intent)
+            }
+        }
+
+        pdfReportButton.setOnClickListener {
+            if (lastCleanResult.isEmpty() || lastRawResult == "No_Leaf" || lastRawResult == "Bilinmiyor") {
+                Toast.makeText(this, "Önce geçerli bir hastalık analizi yapın", Toast.LENGTH_SHORT).show()
+            } else {
+                createPdfReport()
+            }
+        }
+
+        addDiseaseRecordButton.setOnClickListener {
+            if (lastCleanResult.isEmpty() || lastRawResult == "No_Leaf" || lastRawResult == "Bilinmiyor") {
+                Toast.makeText(this, "Önce geçerli bir hastalık analizi yapın", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, DiseaseRecordActivity::class.java)
+                intent.putExtra("diseaseName", lastCleanResult)
+                intent.putExtra("confidence", lastConfidence)
+                startActivity(intent)
+            }
+        }
+
+        diseaseMapButton.setOnClickListener {
+            val intent = Intent(this, DiseaseMapActivity::class.java)
+            startActivity(intent)
+        }
+
+        sellerListButton.setOnClickListener {
+            val intent = Intent(this, SellerListActivity::class.java)
+            startActivity(intent)
+        }
+
+        myOrdersButton.setOnClickListener {
+            val intent = Intent(this, MyOrdersActivity::class.java)
+            startActivity(intent)
+        }
+
         navHome.setOnClickListener {
             Toast.makeText(this, "Zaten ana sayfadasınız", Toast.LENGTH_SHORT).show()
         }
 
-        // Alt menü - Geçmiş
         navHistory.setOnClickListener {
             val intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)
         }
 
-        // Alt menü - Hakkında
         navAbout.setOnClickListener {
             val intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
@@ -153,6 +208,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Analiz yapılamadı", Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun analyzeBitmap(photo: Bitmap) {
         loadingBar.visibility = View.VISIBLE
         loadingText.visibility = View.VISIBLE
@@ -227,6 +283,7 @@ class MainActivity : AppCompatActivity() {
         fadeIn.duration = 600
         resultCard.startAnimation(fadeIn)
     }
+
     private fun saveBitmapToInternalStorage(bitmap: Bitmap): String {
         val filename = "prediction_${System.currentTimeMillis()}.jpg"
         val file = File(filesDir, filename)
@@ -284,6 +341,7 @@ class MainActivity : AppCompatActivity() {
         NameV = myDialog.findViewById(R.id.pltd_name)
         SymptomsV = myDialog.findViewById(R.id.symptoms)
         ManageV = myDialog.findViewById(R.id.management)
+
         val closeDialogButton = myDialog.findViewById<Button>(R.id.closeDialogButton)
 
         closeDialogButton.setOnClickListener {
@@ -421,5 +479,165 @@ class MainActivity : AppCompatActivity() {
 
             else -> label.replace("___", " - ").replace("_", " ")
         }
+    }
+
+    private fun createPdfReport() {
+        try {
+            val pdfDocument = PdfDocument()
+
+            val pageInfo = PdfDocument.PageInfo.Builder(595, 842, 1).create()
+            val page = pdfDocument.startPage(pageInfo)
+
+            val canvas: Canvas = page.canvas
+
+            val paint = Paint()
+            paint.color = Color.BLACK
+            paint.textSize = 14f
+
+            val titlePaint = Paint()
+            titlePaint.color = Color.rgb(20, 90, 45)
+            titlePaint.textSize = 20f
+            titlePaint.isFakeBoldText = true
+
+            val subtitlePaint = Paint()
+            subtitlePaint.color = Color.DKGRAY
+            subtitlePaint.textSize = 13f
+
+            val sectionPaint = Paint()
+            sectionPaint.color = Color.rgb(20, 90, 45)
+            sectionPaint.textSize = 15f
+            sectionPaint.isFakeBoldText = true
+
+            var y = 50
+
+            canvas.drawText("Bitki Hastalık Tespit Sistemi", 40f, y.toFloat(), titlePaint)
+            y += 28
+
+            canvas.drawText("PDF Analiz Raporu", 40f, y.toFloat(), subtitlePaint)
+            y += 30
+
+            canvas.drawLine(40f, y.toFloat(), 555f, y.toFloat(), paint)
+            y += 30
+
+            val dateFormat = SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault())
+            val currentDate = dateFormat.format(Date())
+
+            canvas.drawText("Rapor Tarihi: $currentDate", 40f, y.toFloat(), paint)
+            y += 25
+
+            canvas.drawText("Hastalık / Sonuç: $lastCleanResult", 40f, y.toFloat(), paint)
+            y += 25
+
+            canvas.drawText("Güven Oranı: $lastConfidence", 40f, y.toFloat(), paint)
+            y += 35
+
+            val plan = TreatmentPlanRepository.getTreatmentPlan(lastCleanResult)
+
+            canvas.drawText("Tedavi / Bakım Özeti", 40f, y.toFloat(), sectionPaint)
+            y += 25
+
+            y = drawLongText(canvas, plan.summary, 40, y, paint, 75)
+            y += 20
+
+            canvas.drawText("Risk Seviyesi: ${plan.riskLevel}", 40f, y.toFloat(), paint)
+            y += 35
+
+            canvas.drawText("Uygulanacak Adımlar", 40f, y.toFloat(), sectionPaint)
+            y += 25
+
+            for (i in 0 until plan.steps.size) {
+                y = drawLongText(canvas, "${i + 1}. ${plan.steps[i]}", 40, y, paint, 80)
+                y += 8
+            }
+
+            y += 15
+
+            canvas.drawText("Önerilen Ürünler", 40f, y.toFloat(), sectionPaint)
+            y += 25
+
+            val products = ProductRepository.getAllProducts()
+                .filter { it.diseaseName == lastCleanResult }
+                .take(3)
+
+            if (products.isEmpty()) {
+                canvas.drawText("Bu hastalık için ürün bulunamadı.", 40f, y.toFloat(), paint)
+                y += 20
+            } else {
+                for (product in products) {
+                    y = drawLongText(
+                        canvas,
+                        "- ${product.name} / ${product.category} / ${product.price}",
+                        40,
+                        y,
+                        paint,
+                        80
+                    )
+                    y += 8
+                }
+            }
+
+            y += 25
+
+            canvas.drawLine(40f, y.toFloat(), 555f, y.toFloat(), paint)
+            y += 25
+
+            paint.textSize = 11f
+            paint.color = Color.GRAY
+
+            drawLongText(
+                canvas,
+                "Not: Bu rapor bilgilendirme amaçlıdır. Kesin teşhis ve uygulama için ziraat uzmanına danışılmalıdır.",
+                40,
+                y,
+                paint,
+                95
+            )
+
+            pdfDocument.finishPage(page)
+
+            val fileName = "Bitki_Hastalik_Raporu_${System.currentTimeMillis()}.pdf"
+
+            val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+            val file = File(downloadsDir, fileName)
+
+            pdfDocument.writeTo(FileOutputStream(file))
+            pdfDocument.close()
+
+            Toast.makeText(this, "PDF oluşturuldu: Downloads/$fileName", Toast.LENGTH_LONG).show()
+
+        } catch (e: Exception) {
+            Toast.makeText(this, "PDF oluşturulamadı: ${e.message}", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun drawLongText(
+        canvas: Canvas,
+        text: String,
+        x: Int,
+        startY: Int,
+        paint: Paint,
+        maxChars: Int
+    ): Int {
+        var y = startY
+
+        val words = text.split(" ")
+        var line = ""
+
+        for (word in words) {
+            if ((line + word).length > maxChars) {
+                canvas.drawText(line, x.toFloat(), y.toFloat(), paint)
+                y += 20
+                line = "$word "
+            } else {
+                line += "$word "
+            }
+        }
+
+        if (line.isNotEmpty()) {
+            canvas.drawText(line, x.toFloat(), y.toFloat(), paint)
+            y += 20
+        }
+
+        return y
     }
 }

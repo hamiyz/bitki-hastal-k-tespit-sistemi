@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:background="@drawable/bg_app_gradient">
 
+    <!-- ÜST BAŞLIK -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="92dp"
@@ -26,7 +27,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bitki Hastalık Tespit Sistemi"
+            android:text="Derin Öğrenme Tabanlı Mobil Bitki Hastalık Tespit ve Ürün Öneri Sistemi"
             android:textColor="#EAF7EE"
             android:textSize="13sp"
             android:fontFamily="@font/opensans_regular"
@@ -46,6 +47,21 @@
             android:orientation="vertical"
             android:padding="22dp">
 
+            <!-- SATICI GİRİŞİ -->
+            <Button
+                android:id="@+id/aboutAdminLoginButton"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginBottom="16dp"
+                android:text="Satıcı Girişi"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:fontFamily="@font/opensans_bold"
+                android:background="@drawable/bg_button_green" />
+
+            <!-- UYGULAMA AMACI -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,7 +84,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bu uygulama, bitki yaprak görüntülerini analiz ederek olası hastalıkları tespit etmek amacıyla geliştirilmiştir. Kullanıcı kamera ile fotoğraf çekebilir veya galeriden bir yaprak görüntüsü seçerek analiz yapabilir."
+                    android:text="Bu uygulama, bitki yaprak görüntülerini analiz ederek olası hastalıkları tespit etmek, kullanıcıya tedavi / bakım planı sunmak, hastalığa uygun ürün önerileri göstermek ve satıcılar üzerinden sipariş talebi oluşturmak amacıyla geliştirilmiştir."
                     android:textColor="#1F2933"
                     android:textSize="14sp"
                     android:fontFamily="@font/opensans_regular"
@@ -76,6 +92,7 @@
 
             </LinearLayout>
 
+            <!-- KULLANILAN TEKNOLOJİLER -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,7 +115,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="• Android Studio\n• Kotlin\n• TensorFlow Lite\n• Derin Öğrenme\n• Görüntü Sınıflandırma\n• PlantVillage veri seti"
+                    android:text="• Android Studio\n• Kotlin\n• TensorFlow Lite\n• Derin Öğrenme\n• Görüntü Sınıflandırma\n• PlantVillage veri seti\n• SharedPreferences ile yerel veri saklama\n• PDF rapor oluşturma"
                     android:textColor="#1F2933"
                     android:textSize="14sp"
                     android:fontFamily="@font/opensans_regular"
@@ -106,6 +123,7 @@
 
             </LinearLayout>
 
+            <!-- TEMEL ÖZELLİKLER -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,7 +136,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="📌 Özellikler"
+                    android:text="📌 Temel Özellikler"
                     android:textColor="#138A36"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -128,7 +146,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="• Kamera ile yaprak fotoğrafı çekme\n• Galeriden görüntü seçme\n• Hastalık tahmini yapma\n• Güven oranı gösterme\n• Hastalık belirtileri ve çözüm önerileri\n• Geçmiş analizleri kaydetme\n• Yaprak olmayan görseller için uyarı verme"
+                    android:text="• Kamera ile yaprak fotoğrafı çekme\n• Galeriden görüntü seçme\n• Yapay zeka ile hastalık tahmini yapma\n• Güven oranı gösterme\n• Yaprak olmayan görseller için uyarı verme\n• Hastalık belirtileri ve çözüm önerilerini görüntüleme\n• Geçmiş analizleri kaydetme\n• PDF analiz raporu oluşturma"
                     android:textColor="#1F2933"
                     android:textSize="14sp"
                     android:fontFamily="@font/opensans_regular"
@@ -136,6 +154,100 @@
 
             </LinearLayout>
 
+            <!-- TEDAVİ VE ÜRÜN SİSTEMİ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_white"
+                android:elevation="5dp"
+                android:padding="18dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🧪 Tedavi ve Ürün Öneri Sistemi"
+                    android:textColor="#138A36"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Hastalığa göre tedavi / bakım planı oluşturma\n• Risk seviyesine göre yönlendirme yapma\n• Hastalığa uygun ürün önerileri gösterme\n• Ürün detaylarını görüntüleme\n• Ürünleri kategoriye göre inceleme\n• Favori ürünleri kaydetme\n• Ürüne bağlı satıcı bilgisini gösterme"
+                    android:textColor="#1F2933"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:lineSpacingExtra="5dp" />
+
+            </LinearLayout>
+
+            <!-- SATICI VE SİPARİŞ SİSTEMİ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_white"
+                android:elevation="5dp"
+                android:padding="18dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🛒 Satıcı ve Sipariş Sistemi"
+                    android:textColor="#138A36"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Satıcı listesini görüntüleme\n• Satıcıları şehir, ilçe veya uzmanlık alanına göre arama\n• Satıcı telefon ve e-posta bilgilerine ulaşma\n• Ürün için sipariş talebi oluşturma\n• Kullanıcının kendi cihazındaki sipariş durumunu takip etmesi\n• Her satıcının kendi kullanıcı adı ve şifresiyle giriş yapması\n• Satıcının sadece kendi ürünlerini ve siparişlerini görmesi\n• Satıcının sipariş durumunu güncellemesi"
+                    android:textColor="#1F2933"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:lineSpacingExtra="5dp" />
+
+            </LinearLayout>
+
+            <!-- BÖLGESEL KAYIT SİSTEMİ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_white"
+                android:elevation="5dp"
+                android:padding="18dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📍 Bölgesel Hastalık Kayıtları"
+                    android:textColor="#138A36"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Analiz sonucunu il / ilçe bilgisiyle kaydetme\n• Bölgesel hastalık kayıtlarını görüntüleme\n• Hastalık haritası / kayıt ekranı üzerinden geçmiş bölgesel kayıtları inceleme\n• Hastalık kayıt detaylarına ulaşma"
+                    android:textColor="#1F2933"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:lineSpacingExtra="5dp" />
+
+            </LinearLayout>
+
+            <!-- NOT -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -158,7 +270,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bu uygulama eğitim ve bitirme projesi amacıyla geliştirilmiştir. Sonuçlar kesin tarımsal teşhis yerine ön bilgilendirme amacı taşır."
+                    android:text="Bu uygulama eğitim ve bitirme projesi amacıyla geliştirilmiştir. Hastalık tahmini, ürün önerileri ve bakım planları ön bilgilendirme amaçlıdır. Kesin teşhis, ilaç kullanımı ve uygulama kararları için ziraat uzmanına danışılmalıdır."
                     android:textColor="#1F2933"
                     android:textSize="14sp"
                     android:fontFamily="@font/opensans_regular"
@@ -169,6 +281,7 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- ALT MENÜ -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"

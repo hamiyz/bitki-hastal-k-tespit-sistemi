@@ -141,7 +141,7 @@
                     android:id="@+id/warningText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="⚠️ Yaprak algılanamadı. Lütfen net bir yaprak fotoğrafı seçin."
+                    android:text="Yaprak algılanamadı. Lütfen net bir yaprak fotoğrafı seçin."
                     android:textColor="#C62828"
                     android:textSize="13sp"
                     android:textStyle="bold"
@@ -151,61 +151,232 @@
 
             </LinearLayout>
 
-            <!-- FOTOĞRAF ÇEK BUTONU -->
-            <Button
-                android:id="@+id/mCameraButton"
+            <!-- ANALİZ İŞLEMLERİ -->
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:text=" Fotoğraf Çek ve Analiz Et"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/opensans_bold"
-                android:background="@drawable/bg_button_green"
-                android:layout_marginBottom="12dp" />
-
-            <!-- GALERİDEN SEÇ BUTONU -->
-            <Button
-                android:id="@+id/mGalleryButton"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:text=" Galeriden Seç ve Analiz Et"
-                android:textAllCaps="false"
+                android:layout_height="wrap_content"
+                android:text="Analiz İşlemleri"
                 android:textColor="#138A36"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/opensans_bold"
-                android:background="@drawable/bg_button_outline"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="8dp" />
 
-            <!-- HASTALIK DETAY BUTONU -->
-            <Button
-                android:id="@+id/disease_info"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:text="Hastalık Detaylarını Göster"
-                android:textAllCaps="false"
-                android:textColor="#138A36"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/opensans_bold"
-                android:background="@drawable/bg_button_outline"
-                android:layout_marginBottom="12dp" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_white"
+                android:elevation="3dp"
+                android:padding="14dp"
+                android:layout_marginBottom="18dp">
 
-            <!-- GEÇMİŞ BUTONU -->
-            <Button
-                android:id="@+id/historyButton"
+                <Button
+                    android:id="@+id/mCameraButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="Fotoğraf Çek ve Analiz Et"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold"
+                    android:background="@drawable/bg_button_green" />
+
+                <Button
+                    android:id="@+id/mGalleryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="Galeriden Seç ve Analiz Et"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold"
+                    android:background="@drawable/bg_button_green"
+                    android:layout_marginTop="12dp" />
+
+            </LinearLayout>
+
+            <!-- SONUÇ İŞLEMLERİ -->
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:text="Geçmiş Analizler"
-                android:textAllCaps="false"
+                android:layout_height="wrap_content"
+                android:text="Sonuç İşlemleri"
                 android:textColor="#138A36"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/opensans_bold"
-                android:background="@drawable/bg_button_outline"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_white"
+                android:elevation="3dp"
+                android:padding="14dp"
+                android:layout_marginBottom="18dp">
+
+                <Button
+                    android:id="@+id/disease_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="Hastalık Detaylarını Göster"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold"
+                    android:background="@drawable/bg_button_green" />
+
+                <Button
+                    android:id="@+id/treatmentPlanButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_green"
+                    android:text="Tedavi / Bakım Planı"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <Button
+                    android:id="@+id/productButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_green"
+                    android:text="Ürün Önerilerini Göster"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <Button
+                    android:id="@+id/pdfReportButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_green"
+                    android:text="PDF / Rapor Oluştur"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold" />
+
+            </LinearLayout>
+
+            <!-- TAKİP İŞLEMLERİ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Takip İşlemleri"
+                android:textColor="#138A36"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/opensans_bold"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_white"
+                android:elevation="3dp"
+                android:padding="14dp"
+                android:layout_marginBottom="18dp">
+
+                <Button
+                    android:id="@+id/historyButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="Geçmiş Analizler"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold"
+                    android:background="@drawable/bg_button_green" />
+
+                <Button
+                    android:id="@+id/myOrdersButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_green"
+                    android:text="Sipariş Durumum"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <Button
+                    android:id="@+id/addDiseaseRecordButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_green"
+                    android:text="Bölgesel Kayıt Oluştur"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <Button
+                    android:id="@+id/diseaseMapButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_green"
+                    android:text="Hastalık Haritası / Bölgesel Kayıtlar"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold" />
+
+            </LinearLayout>
+
+            <!-- SATICILAR -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Satıcılar"
+                android:textColor="#138A36"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/opensans_bold"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_white"
+                android:elevation="3dp"
+                android:padding="14dp"
+                android:layout_marginBottom="18dp">
+
+                <Button
+                    android:id="@+id/sellerListButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_button_green"
+                    android:text="Satıcıları Gör"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_bold" />
+
+            </LinearLayout>
 
             <!-- İPUCU KARTI -->
             <LinearLayout
@@ -220,7 +391,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=" İpucu"
+                    android:text="İpucu"
                     android:textColor="#138A36"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -236,11 +407,13 @@
                     android:layout_marginTop="6dp" />
 
             </LinearLayout>
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="24dp" />
 
         </LinearLayout>
+
     </ScrollView>
 
     <!-- ALT MENÜ -->

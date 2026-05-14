@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F8FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Satıcı Paneli"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#145A2D"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ürünler, sipariş talepleri, hastalık açıklamaları ve bölgesel kayıtlar bu panelden yönetilir."
+            android:textSize="15sp"
+            android:textColor="#555555"
+            android:gravity="center"
+            android:paddingBottom="22dp" />
+
+        <Button
+            android:id="@+id/adminOrdersButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Sipariş Taleplerini Gör"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:background="@drawable/bg_button_green" />
+
+        <Button
+            android:id="@+id/adminProductsButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="14dp"
+            android:text="Ürün Yönetimi"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:background="@drawable/bg_button_green" />
+
+        <Button
+            android:id="@+id/adminDiseaseInfoButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="14dp"
+            android:text="Hastalık Açıklamalarını Düzenle"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:background="@drawable/bg_button_green" />
+
+        <Button
+            android:id="@+id/adminDiseaseRecordsButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="14dp"
+            android:text="Bölgesel Hastalık Kayıtları"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:background="@drawable/bg_button_green" />
+
+    </LinearLayout>
+
+</ScrollView>

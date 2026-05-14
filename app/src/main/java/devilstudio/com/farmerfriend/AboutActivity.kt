@@ -3,6 +3,7 @@ package devilstudio.com.farmerfriend
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 
@@ -15,6 +16,8 @@ class AboutActivity : AppCompatActivity() {
         val navHome = findViewById<TextView>(R.id.navHome)
         val navHistory = findViewById<TextView>(R.id.navHistory)
         val navAbout = findViewById<TextView>(R.id.navAbout)
+
+        val aboutAdminLoginButton = findViewById<Button>(R.id.aboutAdminLoginButton)
 
         navHome.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -29,6 +32,11 @@ class AboutActivity : AppCompatActivity() {
 
         navAbout.setOnClickListener {
             Toast.makeText(this, "Zaten hakkında ekranındasınız", Toast.LENGTH_SHORT).show()
+        }
+
+        aboutAdminLoginButton.setOnClickListener {
+            val intent = Intent(this, AdminLoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }
